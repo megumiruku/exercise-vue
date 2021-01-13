@@ -28,15 +28,13 @@
           <img src="./assets/mission-img.jpg" alt="" />
         </div>
       </div>
-      <!-- 編集中 -->
-      <!-- ------ -->
       <div class="service">
         <h2 class="service-title section-title">service</h2>
         <div class="service-content"  v-for="(data,index) in service" :key="index">
-          <div class="service-img" >
-            <img :src="data.img"  alt="" />
+          <div class="service-img" :class="data.classNamePic" >
+            <img :src="data.img"  alt=""  >
           </div>
-          <div class="service-content_inner">
+          <div class="service-content_inner" :class="data.classNameContent">
             <h3 class="mgb-15">{{data.title}}</h3>
             <p class="mgb-15">{{data.subtitle}}</p>
             <p class="mgb-15">
@@ -96,6 +94,8 @@ export default {
            "ユーザーが求める物を分析し、ユーザビリティを備えた最適なサイトを提供。建設業から美容、ブライダル、飲食店まで多種多様な業種の制作実績があります"
         },
         {
+          classNamePic: "service-img_second",
+          classNameContent: "service-content_inner-second",
           img:require("./assets/service1.jpg"),
           title:"web制作事業",
           subtitle: "コーチングのミッション",
@@ -368,9 +368,10 @@ body {
   margin-left: 50%;
 }
 
-.service-img:nth-of-type(2) {
-  margin-right:50%;
+.service-img_second {
+  margin: 0 50% 0 0;
 }
+
 
 .service-content_inner {
   position: absolute;
@@ -382,7 +383,7 @@ body {
   box-sizing: border-box;
 }
 
-.service-content:nth-of-type(2) {
+.service-content_inner-second {
   left: 40%;
 }
 
